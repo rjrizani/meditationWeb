@@ -37,4 +37,9 @@
 
 .app{
     display: grid;
+    grid-template-areas: 
+    "h h h h v v"
+    "f f f f v v"
+    "s s s s v v"
+    "a a a a v v";
 }
