@@ -8,22 +8,66 @@
 </head>
 <body>
     <div class="video">
-        <video autoplay muted loop src="video\233867_tiny.mp4" type="video/mp4">
+
+        <video autoplay muted loop src="video\237249_tiny.mp4" type="video/mp4" id="bg-video">
 
         </video>
     </div>
 
     <div class="app">
         <div class="focus">
-            <h1>Focus</h1>
+         
+            <div>
+
+            </div>
         </div>
 
         <div class="audio">
-            <h1>Audio</h1>
+
+            <audio id="audio" src="audio\autumn-sky-meditation-7618.mp3" type="audio/mp3"></audio>
+            <img src="images\play.png" alt="" onclick="play()">
+            <img src="images/pause.png" alt="" onclick="stop()">
+            <img src="images/volume_up.png" alt="" onclick="up()">
+            <input type="range" min="1" max="100" value="100" id="Vrange">
+            <img src="images/volume down.png" alt="" onclick="down()">
+
+            <script>
+                function play(){
+                    document.getElementById("audio").play();
+                }
+
+                function stop(){
+                    document.getElementById("audio").pause();
+                }
+
+                function up(){
+                    document.getElementById("audio").volume += 0.1;
+                    document.getElementById("Vrange").value = document.getElementById("audio").volume * 100;
+
+                }
+
+                function down(){
+                    document.getElementById("audio").volume -= 0.1;
+                    document.getElementById("Vrange").value = document.getElementById("audio").volume * 100;
+                }
+
+            </script>
         </div>
 
         <div class="video-button">
-            <h1>Video-button</h1>
+            
+            <img src="images\nature.jpeg" alt="" onclick="videoURL('video/nature.mp4','audio/autumn-sky-meditation-7618.mp3')">
+            <img src="images\river.jpeg" alt="" onclick="videoURL('video/sea.mp4','audio/meditation-music-256141.mp3')">
+            <audio src="" id="player" autoplay loop>
+                <source src="" type="audio/mp3">
+            </audio>
+
+            <script>
+                function videoURL(src_video, src_audio){
+                   document.getElementById('bg-video').src = src_video;
+                   document.getElementById('audio').src = src_audio;
+                }
+            </script>
         </div>
     </div>
 
